@@ -1,0 +1,23 @@
+# -*- coding: utf-8 -*-
+#导入要使用的模块
+import numpy as np
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+from pandas import DataFrame,Series
+
+
+#引用“西瓜”表格
+datafile = 'D:\\xigua.xlsx'
+data = pd.read_excel(datafile)
+examDF = DataFrame(data)
+
+#显示西瓜表格
+print(examDF.describe())
+print(examDF[examDF.isnull()==True].count())
+
+print(examDF.corr())
+#显示散点图
+sns.pairplot(data, x_vars=['密度','含糖率'], y_vars='好瓜', height=10, aspect=0.8, kind='reg')
+plt.show()
+
